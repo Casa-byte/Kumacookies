@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KUMA – Kukis Manis, startup cookies lokal Jember berbasis inovasi, keberlanjutan, dan digitalisasi bisnis." />
+  <meta name="theme-color" content="#0E7490" />
+  <title>KUMA – Kukis Manis</title>
+  <style>
+    :root{
+      --teal:#0E7490;
+      --turq:#14B8A6;
+      --mint:#DFF7F3;
+      --white:#FFFFFF;
+      --text:#14313a;
+      --muted:#5c7280;
+      --cocoa:#6F4E37;
+      --coffee:#8B5E3C;
+      --shadow:0 18px 50px rgba(14,116,144,.14);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(20,184,166,.12), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(14,116,144,.10), transparent 28%),
+        #fff;
+      line-height:1.6;
+    }
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px, calc(100% - 32px)); margin:0 auto}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,.78);
+      border-bottom:1px solid rgba(14,116,144,.08);
+    }
+    .navin{
+      display:flex; align-items:center; justify-content:space-between; gap:18px;
+      padding:16px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; color:var(--teal)}
+    .bear{
+      width:38px; height:38px; border-radius:14px; display:grid; place-items:center;
+      background:linear-gradient(135deg, var(--teal), var(--turq)); color:#fff; box-shadow:var(--shadow);
+      font-size:18px;
+    }
+    .menu{display:flex; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:14px}
+    .menu a{color:inherit}
+    .menu a:hover{color:var(--teal)}
+    .btns{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 18px; border-radius:16px; font-weight:700; transition:.25s ease;
+      border:1px solid transparent; cursor:pointer;
+    }
+    .btn.primary{background:linear-gradient(135deg, var(--teal), var(--turq)); color:#fff; box-shadow:var(--shadow)}
+    .btn.primary:hover{transform:translateY(-2px)}
+    .btn.secondary{background:#fff; color:var(--teal); border-color:rgba(14,116,144,.18)}
+    .btn.secondary:hover{background:var(--mint)}
+    .hero{
+      padding:42px 0 24px;
+    }
+    .heroGrid{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:34px; align-items:center;
+      padding:30px 0 12px;
+    }
+    .eyebrow{
+      display:inline-flex; gap:10px; align-items:center;
+      color:var(--teal); font-weight:700; background:rgba(20,184,166,.10);
+      padding:8px 14px; border-radius:999px; margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(2.6rem, 5vw, 4.8rem);
+      line-height:1.03;
+      margin:0 0 18px;
+      letter-spacing:-.04em;
+      color:var(--teal);
+    }
+    .lead{font-size:1.08rem; color:var(--muted); max-width:58ch; margin:0 0 24px}
+    .stats{
+      margin-top:24px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+    }
+    .stat{
+      background:rgba(255,255,255,.86); border:1px solid rgba(14,116,144,.10);
+      border-radius:20px; padding:16px; box-shadow:0 12px 28px rgba(16,24,40,.05);
+    }
+    .stat b{display:block; color:var(--teal); font-size:1.1rem; margin-bottom:4px}
+    .stat span{display:block; color:var(--muted); font-size:.92rem}
+    .heroCard{
+      position:relative; border-radius:30px; overflow:hidden; box-shadow:var(--shadow);
+      min-height:620px; background:
+        linear-gradient(180deg, rgba(20,184,166,.15), rgba(14,116,144,.08)),
+        #fff;
+      border:1px solid rgba(14,116,144,.12);
+    }
+    .heroCard .photo{
+      position:absolute; inset:0; background:
+        linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.12)),
+        url('public/images/products/hero-cookie.jpg') center/cover no-repeat;
+      filter:saturate(1.02);
+    }
+    .heroCard .overlay{
+      position:absolute; inset:auto 18px 18px 18px;
+      background:rgba(255,255,255,.92); border:1px solid rgba(14,116,144,.08);
+      border-radius:22px; padding:16px 18px; backdrop-filter: blur(12px);
+    }
+    .overlay h3{margin:0 0 4px; color:var(--teal)}
+    .overlay p{margin:0; color:var(--muted); font-size:.95rem}
+    section{padding:72px 0}
+    .sectionHead{margin-bottom:24px}
+    .sectionHead h2{
+      margin:0 0 10px; color:var(--teal); font-size:clamp(1.8rem, 3vw, 2.8rem); line-height:1.1;
+    }
+    .sectionHead p{margin:0; color:var(--muted); max-width:75ch}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    .card{
+      background:#fff; border:1px solid rgba(14,116,144,.10); border-radius:var(--radius);
+      box-shadow:0 12px 30px rgba(16,24,40,.05); padding:24px;
+    }
+    .aboutCopy p{margin:0 0 16px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:999px; background:var(--mint); color:var(--teal); font-weight:700; font-size:.92rem;
+    }
+    .products{display:grid; grid-template-columns:repeat(2,1fr); gap:22px}
+    .productCard{
+      border-radius:28px; overflow:hidden; background:#fff; border:1px solid rgba(14,116,144,.10);
+      box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .productCard:hover{transform:translateY(-4px)}
+    .productMedia{
+      height:290px; position:relative; overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(111,78,55,.12), rgba(14,116,144,.05));
+    }
+    .productMedia.coffee{background:linear-gradient(135deg, rgba(139,94,60,.16), rgba(14,116,144,.05))}
+    .productMedia::before{
+      content:"Replace this image with actual product photo I send";
+      position:absolute; inset:0; display:grid; place-items:center;
+      color:#6b7280; background:rgba(255,255,255,.72);
+      font-size:.95rem; text-align:center; padding:24px;
+    }
+    .productBody{padding:22px}
+    .badge{
+      display:inline-flex; padding:8px 12px; border-radius:999px; font-size:.82rem; font-weight:800;
+      color:#fff; margin-bottom:12px;
+    }
+    .badge.cocoa{background:var(--cocoa)}
+    .badge.coffee{background:var(--coffee)}
+    .price{font-size:1.9rem; color:var(--turq); font-weight:900; margin:10px 0}
+    .mini{color:var(--muted); font-size:.95rem}
+    .highlight{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:18px;
+    }
+    .highlight .card h3{margin:0 0 10px; color:var(--teal)}
+    .icon{
+      width:46px; height:46px; border-radius:16px; display:grid; place-items:center;
+      background:rgba(20,184,166,.12); color:var(--teal); font-size:1.25rem; margin-bottom:14px;
+    }
+    .partners, .impact, .nutrition, .smart, .testimonials, .faq, .contact{
+      display:grid; gap:18px;
+    }
+    .partners{grid-template-columns:repeat(5,1fr)}
+    .impact{grid-template-columns:repeat(3,1fr)}
+    .nutrition{grid-template-columns:repeat(4,1fr)}
+    .smart{grid-template-columns:1.1fr .9fr}
+    .timeline{
+      display:grid; gap:12px;
+    }
+    .step{
+      display:flex; gap:14px; align-items:flex-start;
+      background:#fff; border:1px solid rgba(14,116,144,.10); border-radius:20px; padding:16px;
+    }
+    .stepNum{
+      width:34px; height:34px; border-radius:12px; display:grid; place-items:center;
+      background:var(--teal); color:#fff; font-weight:800; flex:none;
+    }
+    .poBox{
+      border-radius:30px; background:linear-gradient(135deg, var(--teal), var(--turq));
+      color:#fff; padding:28px; box-shadow:var(--shadow);
+    }
+    .status{
+      display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px;
+      font-weight:900; letter-spacing:.02em;
+    }
+    .status.open{background:#dcfce7; color:#166534}
+    .status.closed{background:#fee2e2; color:#991b1b}
+    .countdown{
+      font-size:clamp(2rem, 5vw, 3.8rem); font-weight:900; margin:10px 0 8px;
+    }
+    .schedule{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:18px;
+    }
+    .schedule .card{background:rgba(255,255,255,.96)}
+    .faqItem details{
+      background:#fff; border:1px solid rgba(14,116,144,.10); border-radius:18px; padding:18px 20px;
+    }
+    .faqItem summary{cursor:pointer; font-weight:800; color:var(--teal)}
+    .footer{
+      padding:28px 0 60px; color:var(--muted); font-size:.95rem;
+    }
+    .floatingWa{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      width:58px; height:58px; border-radius:18px; display:grid; place-items:center;
+      background:linear-gradient(135deg, #25D366, #128C7E);
+      color:#fff; box-shadow:var(--shadow); font-size:1.5rem;
+    }
+    .loading{
+      display:inline-block; width:18px; height:18px; border:3px solid rgba(255,255,255,.45); border-top-color:#fff;
+      border-radius:50%; animation:spin 1s linear infinite; margin-right:8px;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .fade{animation:fade .7s ease both}
+    @keyframes fade{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:translateY(0)}}
+    .muted{color:var(--muted)}
+    .pillRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .pill{
+      background:rgba(255,255,255,.92); border:1px solid rgba(14,116,144,.10);
+      padding:10px 12px; border-radius:999px; font-weight:700; color:var(--teal); font-size:.92rem;
+    }
+    .qrMock{
+      border-radius:28px; padding:24px; background:#fff; border:1px solid rgba(14,116,144,.10); box-shadow:var(--shadow)
+    }
+    .qrSquare{
+      width:132px; height:132px; border-radius:22px; background:
+        linear-gradient(90deg, #111 0 12%, transparent 12% 20%, #111 20% 28%, transparent 28% 39%, #111 39% 49%, transparent 49% 60%, #111 60% 71%, transparent 71% 83%, #111 83% 100%),
+        linear-gradient(#111 0 12%, transparent 12% 20%, #111 20% 28%, transparent 28% 39%, #111 39% 49%, transparent 49% 60%, #111 60% 71%, transparent 71% 83%, #111 83% 100%);
+      background-size: 100% 100%;
+      position:relative; overflow:hidden;
+      margin-bottom:16px;
+    }
+    .qrSquare::after{
+      content:""; position:absolute; inset:18px; border-radius:18px; background:conic-gradient(from 90deg, var(--teal), var(--turq), var(--mint), var(--teal));
+      mix-blend-mode:screen; opacity:.28;
+    }
+    .packCard{
+      margin-top:16px; border-radius:24px; overflow:hidden; border:1px solid rgba(14,116,144,.10); background:linear-gradient(160deg, rgba(20,184,166,.14), rgba(255,255,255,.95));
+    }
+    .packTop{padding:20px 22px; display:flex; justify-content:space-between; gap:12px; align-items:center}
+    .packTop b{color:var(--teal)}
+    .packBottom{
+      padding:16px 22px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+      background:rgba(255,255,255,.82); border-top:1px solid rgba(14,116,144,.08)
+    }
+    @media (max-width: 980px){
+      .heroGrid,.grid2,.smart,.products,.highlight,.partners,.impact,.nutrition{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .schedule{grid-template-columns:1fr}
+      .menu{display:none}
+    }
+    @media (max-width: 640px){
+      .stats{grid-template-columns:1fr}
+      .btns{width:100%}
+      .btn{width:100%}
+      .navin{flex-direction:column; align-items:flex-start}
+      .heroCard{min-height:420px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#top" aria-label="KUMA Home">
+        <span class="bear">🐻</span>
+        <span>KUMA <span class="muted" style="font-weight:700">| Kukis Manis</span></span>
+      </a>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#different">Innovation</a>
+        <a href="#po">Open PO</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="btns">
+        <a class="btn secondary" href="#products">Explore Products</a>
+        <a class="btn primary" href="https://wa.me/6289515796458" target="_blank" rel="noopener">Order Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap heroGrid fade">
+        <div>
+          <div class="eyebrow">Sustainable Food Startup • Local Innovation • Digital UMKM Platform</div>
+          <h1>Empowering Local Commodities Through Every Cookie</h1>
+          <p class="lead">
+            Cookies berbahan kakao dan kopi lokal Jember yang dikembangkan melalui inovasi produk, digitalisasi bisnis, dan komitmen terhadap keberlanjutan.
+          </p>
+          <div class="btns">
+            <a class="btn primary" href="https://wa.me/6289515796458" target="_blank" rel="noopener">Order Now</a>
+            <a class="btn secondary" href="#products">Explore Products</a>
+          </div>
+          <div class="stats" aria-label="Hero statistics">
+            <div class="stat"><b>2</b><span>Local Commodity Variants</span></div>
+            <div class="stat"><b>QR</b><span>Smart Packaging</span></div>
+            <div class="stat"><b>Zero Waste</b><span>Production</span></div>
+            <div class="stat"><b>Digital</b><span>Ordering Platform</span></div>
+          </div>
+        </div>
+        <div class="heroCard" aria-label="Hero product photo">
+          <div class="photo"></div>
+          <div class="overlay">
+            <h3>Premium cookies for business showcase</h3>
+            <p>Use your actual product photo here. Replace <b>public/images/products/hero-cookie.jpg</b> with the real asset.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap grid2">
+        <div class="sectionHead">
+          <h2>About KUMA</h2>
+          <p>KUMA berawal dari hobi baking yang berkembang menjadi usaha yang menggabungkan kreativitas, pembelajaran bisnis, kewirausahaan, dan pemanfaatan komoditas lokal Jember.</p>
+        </div>
+        <div class="card aboutCopy fade">
+          <p>Kami tidak hanya menjual cookies, tetapi juga berupaya meningkatkan nilai tambah kopi dan kakao lokal melalui produk yang lebih modern dan mudah diterima pasar.</p>
+          <p>Dengan konsep zero waste production, smart packaging berbasis QR Code, dan digitalisasi bisnis, KUMA hadir sebagai startup pangan lokal yang profesional, inovatif, dan scalable.</p>
+          <div class="chips">
+            <span class="chip">🌱 Sustainability</span>
+            <span class="chip">📍 Jember-based</span>
+            <span class="chip">📱 Digital-first</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Products</h2>
+          <p>Hanya dua varian utama, dirancang untuk menonjolkan identitas bisnis dan nilai tambah komoditas lokal Jember.</p>
+        </div>
+        <div class="products">
+          <article class="productCard fade">
+            <div class="productMedia cocoa"></div>
+            <div class="productBody">
+              <span class="badge cocoa">Made with Local Jember Cocoa</span>
+              <h3 style="margin:0;color:var(--teal)">Choco Cookies</h3>
+              <div class="price">Rp7.000</div>
+              <p class="mini">Cookies cokelat homemade yang dibuat menggunakan kakao lokal Jember. Menghadirkan rasa cokelat yang kaya sekaligus membantu meningkatkan nilai tambah hasil pertanian lokal.</p>
+              <p class="mini"><b>Nutrition:</b> 95 kcal per cookie</p>
+              <div class="btns" style="margin-top:14px">
+                <a class="btn primary" href="https://wa.me/6289515796458?text=Halo%20KUMA,%20saya%20ingin%20memesan%20Choco%20Cookies" target="_blank" rel="noopener">Order Choco</a>
+              </div>
+            </div>
+          </article>
+          <article class="productCard fade">
+            <div class="productMedia coffee"></div>
+            <div class="productBody">
+              <span class="badge coffee">Made with Local Jember Coffee</span>
+              <h3 style="margin:0;color:var(--teal)">Coffee Cookies</h3>
+              <div class="price">Rp7.000</div>
+              <p class="mini">Cookies dengan aroma kopi yang khas menggunakan kopi lokal Jember sebagai bahan utama sehingga memberikan karakter rasa yang unik dan autentik.</p>
+              <p class="mini"><b>Nutrition:</b> 95 kcal per cookie</p>
+              <div class="btns" style="margin-top:14px">
+                <a class="btn primary" href="https://wa.me/6289515796458?text=Halo%20KUMA,%20saya%20ingin%20memesan%20Coffee%20Cookies" target="_blank" rel="noopener">Order Coffee</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="different">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Why KUMA Is Different</h2>
+          <p>Empat inovasi utama yang menegaskan KUMA sebagai startup pangan lokal berbasis inovasi dan keberlanjutan.</p>
+        </div>
+        <div class="highlight">
+          <div class="card fade"><div class="icon">☕</div><h3>Local Commodity Utilization</h3><p>Menggunakan kakao dan kopi dari petani lokal Jember sebagai bahan baku utama sehingga membantu meningkatkan nilai jual hasil pertanian daerah.</p></div>
+          <div class="card fade"><div class="icon">🌱</div><h3>Zero Waste Production</h3><p>Memanfaatkan putih telur yang tersisa dari proses produksi menjadi icing atau produk pendamping sehingga mengurangi limbah dan meningkatkan efisiensi bahan baku.</p></div>
+          <div class="card fade"><div class="icon">📱</div><h3>Smart Packaging QR Code</h3><p>Kemasan dilengkapi QR Code yang terhubung langsung ke website untuk menampilkan informasi produk, nutrisi, komposisi bahan, cara penyimpanan, dan pemesanan ulang.</p></div>
+          <div class="card fade"><div class="icon">💻</div><h3>Digital Business Platform</h3><p>Website digunakan sebagai media promosi, katalog produk, informasi Open PO, dan pemesanan online sehingga memperluas jangkauan pasar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Key Partners</h2>
+          <p>Mitra utama KUMA sesuai Business Model Canvas.</p>
+        </div>
+        <div class="partners">
+          <div class="card fade"><h3>Petani kopi dan kakao lokal Jember</h3><p class="muted">Sumber bahan baku utama untuk menjaga kualitas dan dampak ekonomi lokal.</p></div>
+          <div class="card fade"><h3>Toko bahan kue Hajina</h3><p class="muted">Mendukung suplai bahan pendukung produksi secara konsisten.</p></div>
+          <div class="card fade"><h3>Percetakan kemasan</h3><p class="muted">Mewujudkan packaging profesional dengan QR Code.</p></div>
+          <div class="card fade"><h3>Pengembang website</h3><p class="muted">Mendukung digitalisasi katalog, promosi, dan pemesanan.</p></div>
+          <div class="card fade"><h3>Food reviewer & content creator lokal</h3><p class="muted">Mendorong awareness, kredibilitas, dan reach pasar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Business Impact</h2>
+          <p>Dampak bisnis KUMA dirancang untuk kuat secara ekonomi, jelas secara lingkungan, dan relevan secara digital.</p>
+        </div>
+        <div class="impact">
+          <div class="card fade"><h3 style="color:var(--teal)">Economic Impact</h3><p>Mendukung petani kakao lokal Jember, mendukung petani kopi lokal Jember, dan meningkatkan nilai tambah komoditas daerah.</p></div>
+          <div class="card fade"><h3 style="color:var(--teal)">Environmental Impact</h3><p>Mengurangi limbah produksi melalui
